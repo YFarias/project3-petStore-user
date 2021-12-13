@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext, useReducer } from "react";
 import { AuthContext } from "../../context/auth.context";
 
+
 function Navbar() {
   // Get the value from the context
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -13,6 +14,7 @@ function Navbar() {
         <button>Home</button>
       </Link>
 
+     
       {isLoggedIn && (
         <>
           <button onClick={logOutUser}>Logout</button>

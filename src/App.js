@@ -8,9 +8,12 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
 
 import IsPrivate from './components/IsPrivate/IsPrivate';
 import IsAnon from "./components/IsAnon/IsAnon";
+import CartPage from "./pages/EditProfilePage/EditProfilePage";
+
 
 function App() {
   return (
@@ -19,9 +22,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-
+        <Route path="/productsdetails/:productId" element = {  <IsPrivate> <ProductDetailsPage/> </IsPrivate> }/>
         <Route path="/profile" element={<IsPrivate> <ProfilePage /> </IsPrivate>} />
 
+        <Route path ="/usercart" element = {<IsPrivate> <CartPage /> </IsPrivate>}/>
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-class ExampleService {
+class ProductService {
   constructor() {
     this.api = axios.create({
       baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5004"
@@ -19,35 +19,44 @@ class ExampleService {
     });
   }
 
-  // POST /api/examples
+  // POST /api/products
   createOne = async (requestBody) => {
-    return this.api.post('/api/examples', requestBody);
+    return this.api.post('/api/products', requestBody);
   }
 
-  // GET /api/examples
+  // GET /api/products
   getAll = async () => {
-    return this.api.get('/api/examples');
+    return this.api.get('/api/products');
   }
 
-  // GET /api/examples/:id
+  // GET /api/products/:productsId
   getOne = async (id) => {
-    return this.api.get(`/api/examples/${id}`);
+    return this.api.get(`/api/products/${id}`);
   }
 
-  // PUT /api/examples/:id
+  // PUT /api/products/:productsId - Edit products
   updateOne = async (id, requestBody) => {
-    return this.api.put(`/api/examples/${id}`, requestBody);
+    return this.api.put(`/api/products/${id}`, requestBody);
   }
 
-  // DELETE /api/examples/:id
+  // DELETE /api/products/:productsId
   deleteProject = async (id) => {
     return this.api.delete(`/api/examples/${id}`);
   } 
+  
+  //PUT /api/product/:productId - Add cart
+  updateUserCart = async (id) => {
+    return this.api.put(`/api/product/${id}`)
+  }
 
+  //delete /api/product/:productId - delete product Cart
+  deleteUserProduct = async (id) => {
+    return this.api.delete(`/api/product/${id}`)
+  }
 
 }
 
 // Create one instance of the service
-const exampleService = new ExampleService();
+const productService = new ProductService();
 
-export default exampleService;
+export default productService;
