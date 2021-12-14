@@ -1,11 +1,15 @@
-import EditProfile from "../../components/EditProfile/EditProfile";
+import ProfileEdit from "../../components/ProfileEdit/ProfileEdit";
 
- 
+import { useContext, useReducer } from "react";
+import { AuthContext } from "../../context/auth.context";
+
  function ProfilePage() {
+  const { isLoggedIn, user,  logOutUser } = useContext(AuthContext);
+  
   return (
     <div>
       <h1>Profile</h1>
-      <EditProfile/>
+      <ProfileEdit props={user}/>
     </div>
   );
 }

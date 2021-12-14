@@ -40,8 +40,8 @@ class ProductService {
   }
 
   // DELETE /api/products/:productsId
-  deleteProject = async (id) => {
-    return this.api.delete(`/api/examples/${id}`);
+  deleteProduct = async (id) => {
+    return this.api.delete(`/api/products/${id}`);
   } 
   
   //PUT /api/product/:productId - Add cart

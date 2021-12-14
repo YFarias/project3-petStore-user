@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/auth.context";
 
 function Navbar() {
   // Get the value from the context
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, user,  logOutUser } = useContext(AuthContext);
 
   return (
     <nav className="Navbar">
@@ -14,6 +14,27 @@ function Navbar() {
         <button>Home</button>
       </Link>
 
+      <Link to="/admin">
+        <button>Admin</button>
+      </Link>
+
+
+      <div className="profile-img-wrapper">    
+        {user &&
+          <Link to={"/cartproduct"}>
+            <img className="" src="" alt="Cart" />
+          </Link>
+        }
+      </div>
+
+
+      <div className="profile-img-wrapper">
+        {user &&
+          <Link to="/profile">
+            <button>{user.name}</button>
+          </Link>
+        }
+      </div> 
      
       {isLoggedIn && (
         <>
@@ -32,13 +53,7 @@ function Navbar() {
           </Link>
         </>
       )}
-      <div className="profile-img-wrapper">
-        {user &&
-          <Link to="/profile">
-            <img className="profile-img" src={user.image} alt="profile" />
-          </Link>
-        }
-      </div>
+      
     </nav>
   );
 }

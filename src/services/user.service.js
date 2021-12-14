@@ -25,9 +25,9 @@ class UserService {
         return this.api.get('/api/users')
     }
 
-    // GET /api/users/:currentId  - Update the current user 
-    currentUserId = async (id) => {
-        return this.api.get(`/api/users/${id}`)
+    // GET /api/users/current  - Update the current user 
+    currentUser = async () => {
+        return this.api.get(`/api/users/current`)
     }
     
    // PUT /api/users/current  - Update the current user 
@@ -35,9 +35,9 @@ class UserService {
         return this.api.put('/api/users/current', requestBody)
     }
 
-    // GET /api/users/current  - Get current user information and update addCart populate
-    oneUser = async ( ) => {
-        return this.api.get('/api/users/current')
+    // GET /api/user/current  - Get current user information and update addCart populate
+    oneUser = async () => {
+        return this.api.get(`/api/user/current`)
     }
 };
 

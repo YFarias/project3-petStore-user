@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
 import userService from "../../services/user.service";
 
-function EditProfile(props) {
+
+
+function ProfileEdit(props) {
+  
   const [name, setName] = useState("")
   const [password, setPassword] = useState(" ")
   const [email, setEmail] = useState(" ")
   const [address, setAddress] = useState(" ")
-
+ 
+  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await userService.currentUserId()
+        const response = await userService.oneUser()
         const oneUser = response.data;
         console.log('USERID WORK', response)
         setName(oneUser.name);
@@ -35,12 +39,11 @@ function EditProfile(props) {
       await userService.updateCurrentUser(requestBody)
 
       // clear the form
+        setName("")
+        setPassword(" ")
+        setEmail(" ")
+        setAddress(" ")
       
-      setName("")
-      setPassword(" ")
-      setEmail(" ")
-      setAddress(" ")
-
 
     } catch (error) {
       
@@ -81,4 +84,4 @@ function EditProfile(props) {
   );
 }
 
-export default EditProfile;
+export default ProfileEdit;
