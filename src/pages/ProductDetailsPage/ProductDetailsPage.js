@@ -8,10 +8,6 @@ function ProductDetailsPage() {
   
   const {productId } = useParams();
   
-  // Make an axios call when the component is created
-  // and get the project details from the server
-  // GET /api/products/:productsId
-  
   const getProduct = async () => {
     try {
       
@@ -28,24 +24,24 @@ function ProductDetailsPage() {
   useEffect(() => {
     getProduct()
 
-  },[]);
+  },);
 
   return (
     <div className="ProductDetails">
       {product && (
         <>
-            <div>
-                <h1>{product.title}</h1>
-                <img src={product.image} alt="productimage" width="150px" />
-                <p>{product.description}</p>
-                <h5>{product.price}</h5>
+          <div>
+              <h1>{product.title}</h1>
+              <img src={product.image} alt="productimage" width="150px" />
+              <p>{product.description}</p>
+              <h5>{product.price}</h5>
 
-            </div>
-            <div>
+          </div>
+          <div>
 
-                <AddCart />
+              <AddCart />
 
-            </div>
+          </div>
             
   
         </> 
