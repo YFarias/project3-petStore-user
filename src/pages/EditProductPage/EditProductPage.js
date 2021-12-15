@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import fileService from "../../services/file.service";
@@ -11,8 +10,7 @@ function EditProductPage() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState(0);
-  
-  
+    
   const {productId } = useParams();
   const navigate = useNavigate();
 
@@ -23,7 +21,7 @@ function EditProductPage() {
       const response = await productService.getOne(productId);
         
       const oneProduct = response.data;
-      
+
         setTitle(oneProduct.title);
         setImageUrl(oneProduct.imageUrl);
         setDescription(oneProduct.description);
@@ -122,7 +120,6 @@ function EditProductPage() {
           onChange={(e) => setPrice(e.target.value)}
         />
      
-
         <button type="submit">Update Project</button>
       </form>
       <div>
