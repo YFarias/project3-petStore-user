@@ -1,12 +1,13 @@
 
 import { useState } from "react";
+import fileService from "../../services/file.service";
 import productService from "../../services/product.service";
 
 
 
 function AddProduct({ refreshProducts }) {
     const [title, setTitle] = useState("");
-    const [image, setImage] = useState("");
+    const [imageURL, setImageURL] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [role, setRole] = useState("");
@@ -15,7 +16,7 @@ function AddProduct({ refreshProducts }) {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const requestBody = { title, description, image, category, role, price };
+      const requestBody = { title, description, imageURL, category, role, price };
 
       // const token = localStorage.getItem('authToken');
       // await axios.post(
@@ -29,7 +30,7 @@ function AddProduct({ refreshProducts }) {
 
       // Reset the state
         setTitle("");
-        setImage("");
+        setImageURL("");
         setDescription(" ");
         setCategory(" ");
         setPrice(0);
@@ -40,6 +41,20 @@ function AddProduct({ refreshProducts }) {
       console.log(error);
     }
   };
+
+  const handleFileUpload = async (e) => {
+    try {
+      
+      const uploadoData = new FormData();
+      uploadoData.append("imageURL", e.target.files(0))
+      const response = await fileService.uploadImage(uploadoData)
+      console.log('REsponseUpload',response)
+      setImageURL(response.data.secure_url);
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="AddProject">
@@ -62,8 +77,7 @@ function AddProduct({ refreshProducts }) {
         />
 
         <label>Image:</label>
-        <input type="img" name="image" value={image}
-          onChange={(e) => setImage(e.target.value)}
+        <input type="file" onChange={handleFileUpload}
         />
 
         <label>Price:</label>

@@ -2,17 +2,20 @@ import { useState, useEffect } from "react";
 import productService from "../../services/product.service";
 import { Link } from 'react-router-dom'
 import SearchBar from "../../components/SearchBar/SearchBar";
-import FilterBar from "../../components/FilterBar/FilterBar";
+
 
 function HomePage() {
   const [products, setProducts] = useState([])
- 
+  const [allProducts, setAllProducts] = useState([])
+  
   const getAllProducts = async () => {
     try {
       
       const productData = await productService.getAll()
       setProducts(productData.data)
-    
+      setAllProducts(productData.data)
+     
+
     } catch (error) {
       console.log(error)
     }
@@ -27,36 +30,19 @@ function HomePage() {
 
   const searchFilter = (text) => {
     setProducts(
-      products.filter((product) => {
+      allProducts.filter((product) => {
         return product.title.toLowerCase().includes(text.toLowerCase());
       })
     );
   };
 
-  const filterProduct = (char) => {
-    let filteredProduct;
-    if (char === "All") {
-      filteredProduct = products;
-    }
-    else {
-      filteredProduct = products.filter((oneProduct) => {
-        return oneProduct.title[0].toLowerCase() === char.toLowerCase();
-      })
-    }
-
-    setProducts(filteredProduct);
-  }
- 
+   
   return (
     <div className="productlist">
       <div>
         <SearchBar searchFilter={searchFilter}/>
       </div>
-      <div>
-        <FilterBar filterProduct ={filterProduct}/>
-      </div>
-
-      
+            
         {products.map((oneProduct) => {
             return(
               <div className="productlist card" key={oneProduct._id}>

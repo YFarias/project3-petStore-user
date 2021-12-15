@@ -14,9 +14,12 @@ function Navbar() {
         <button>Home</button>
       </Link>
 
+      {isLoggedIn && user && (user.role === "admin") && (
       <Link to="/admin">
         <button>Admin</button>
       </Link>
+        
+      )}
 
 
       <div className="profile-img-wrapper">    

@@ -16,6 +16,7 @@ import IsAnon from "./components/IsAnon/IsAnon";
 import CartPage from "./pages/CartPage/CartPage";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import EditProductPage from "./pages/EditProductPage/EditProductPage";
+import IsAdmin from "./components/isAdmin/IsAdmin";
 
 
 
@@ -31,14 +32,14 @@ function App() {
         <Route path="/profile" element={<IsPrivate> <ProfilePage /> </IsPrivate>} />
 
         
-        <Route path="/admin" element={<IsPrivate> <AdminPage /> </IsPrivate>} />
+        <Route path="/admin" element={<IsPrivate> <IsAdmin><AdminPage /> </IsAdmin></IsPrivate>} />
         <Route path="/admin-edit/:productId" element={<IsPrivate> <EditProductPage /> </IsPrivate>} />
         
 
 
 
 
-        <Route path ="/cartproduct/:userId" element = {<IsPrivate> <CartPage /> </IsPrivate>}/>
+        <Route path ="/cartproduct" element = {<IsPrivate> <CartPage /> </IsPrivate>}/>
         
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />

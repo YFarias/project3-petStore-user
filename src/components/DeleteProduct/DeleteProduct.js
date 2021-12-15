@@ -5,7 +5,7 @@ import productService from "../../services/product.service";
 
 
 
-function DeleteProduct({}) {
+function DeleteProduct() {
     
    const navigate = useNavigate
 
@@ -15,13 +15,6 @@ function DeleteProduct({}) {
    const deleteProject = async () => {
         try {
     
-          // const token = localStorage.getItem('authToken');      
-          // axios.delete(
-          //   `${API_URL}/api/projects/${projectId}`,
-          //   { headers: {Authorization: `Bearer ${}`} }
-          // );
-    
-          // or
           await productService.deleteProduct(productId);      
           
           navigate("/admin");

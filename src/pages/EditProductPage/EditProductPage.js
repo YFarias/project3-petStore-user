@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import fileService from "../../services/file.service";
 import productService from "../../services/product.service";
 
 
@@ -66,6 +67,21 @@ function EditProductPage() {
     }
   };
 
+  const handleFileUpload = async (e) => {
+    try {
+      
+      const uploadoData = new FormData();
+      uploadoData.append("image", e.target.files(0))
+      const response = await fileService.uploadImage(uploadoData)
+      setImage(response.data.secure_url);
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
   const deleteProject = async () => {
     try {
 
@@ -104,10 +120,10 @@ function EditProductPage() {
           onChange={(e) => setCategory(e.target.value)}
         />
 
+
         <label>Image:</label>
-        <input type="img" name="image" value={image}
-          onChange={(e) => setImage(e.target.value)}
-        />
+        <input type="file" onChange={handleFileUpload}/>
+        
 
         <label>Price:</label>
         <input type="number" name="price" value={price}

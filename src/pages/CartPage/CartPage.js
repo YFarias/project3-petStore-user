@@ -1,52 +1,50 @@
 import { useState, useEffect } from 'react';
-import {useParams} from 'react-router-dom';
-import AddCart from '../../components/AddCart/AddCart';
 import DeleteUserCart from '../../components/DeleteUserCart/DeleteUserCart';
-import productService from '../../services/product.service';
+
 import userService from '../../services/user.service';
 
+
 function CartPage() {
-  /*const [userProduct, setUserProduct] = useState(null);
+  const [userProduct, setUserProduct] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [flag, setFlag] = useState(false);
   
+   const triggerCart = (flag) => {
+    setFlag(!flag)
+   }
     
-  // Make an axios call when the component is created
-  // and get the project details from the server
-  // GET /api/products/:productsId
-  
   const getProduct = async () => {
     try {
       
       const response = await userService.oneUser()
-        
+ 
       setUserProduct(response.data);
+      setCart(response.data.addCart)
         console.log('RESPONSE',response.data )
     } catch (error) {
       console.log(error);
     }
-
 }
-
   useEffect(() => {
     getProduct();
 
-  }, [])
-*/
+  }, [flag])
+
   return (
-    <div className="Cart">
+    <div className="">
       {
-        <>
-            <div>
-                <h1>Cart</h1>
-           
-            </div>
-            <div>
-
-                <DeleteUserCart/>
-
-            </div>
-            
-        </> 
+        cart.map((e) => {
+        return (
+          <div key={e._id}>
+          <h5>{e.title}</h5>
          
+            <DeleteUserCart productId={e._id} triggerCart={triggerCart}/>
+
+        </div>  
+
+        
+        )
+        })
       }
 
     </div>
