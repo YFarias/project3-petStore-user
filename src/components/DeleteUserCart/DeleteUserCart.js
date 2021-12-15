@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import productService from "../../services/product.service";
 
 
