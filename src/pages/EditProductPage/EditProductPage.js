@@ -7,10 +7,9 @@ import productService from "../../services/product.service";
 
 function EditProductPage() {
   const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [role, setRole] = useState("");
   const [price, setPrice] = useState(0);
   
   
@@ -21,22 +20,15 @@ function EditProductPage() {
     const fetchData = async () => {
       try {
 
-      // const token = localStorage.getItem('authToken');        
-      // const response = await axios.get(
-      //   `${API_URL}/api/projects/${projectId}`,
-      //    { headers: {Authorization: "Bearer " + token} }
-      // );
-        
-      // or
       const response = await productService.getOne(productId);
         
-        const oneProduct = response.data;
+      const oneProduct = response.data;
+      
         setTitle(oneProduct.title);
-        setImage(oneProduct.Image);
+        setImageUrl(oneProduct.imageUrl);
         setDescription(oneProduct.description);
-        setCategory(oneProduct.Category);
+        setCategory(oneProduct.category);
         setPrice(oneProduct.price);
-        setRole(oneProduct.role);
 
       } catch (error) {
         console.log(error);
@@ -49,7 +41,7 @@ function EditProductPage() {
   const handleFormSubmit = async (e) => {
     try {
       e.preventDefault();
-      const requestBody = { title, description, image, price, role, category };
+      const requestBody = { title, description, imageUrl, price, category };
 
       // const token = localStorage.getItem('authToken');      
       // await axios.put(
@@ -70,10 +62,10 @@ function EditProductPage() {
   const handleFileUpload = async (e) => {
     try {
       
-      const uploadoData = new FormData();
-      uploadoData.append("image", e.target.files(0))
-      const response = await fileService.uploadImage(uploadoData)
-      setImage(response.data.secure_url);
+      const uploadData = new FormData();
+      uploadData.append("image", e.target.files[0])
+      const response = await fileService.uploadImage(uploadData)
+      setImageUrl(response.data.secure_url);
 
     } catch (error) {
       console.log(error)
@@ -129,10 +121,7 @@ function EditProductPage() {
         <input type="number" name="price" value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
-        <label>Role:</label>
-        <input type="text" name="role" value={role}
-          onChange={(e) => setRole(e.target.value)}
-        />
+     
 
         <button type="submit">Update Project</button>
       </form>

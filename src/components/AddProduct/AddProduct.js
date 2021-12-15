@@ -4,37 +4,27 @@ import fileService from "../../services/file.service";
 import productService from "../../services/product.service";
 
 
-
 function AddProduct({ refreshProducts }) {
     const [title, setTitle] = useState("");
-    const [imageURL, setImageURL] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
-    const [role, setRole] = useState("");
     const [price, setPrice] = useState(0);
+    const [image, setImage] = useState("");
 
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const requestBody = { title, description, imageURL, category, role, price };
+      const requestBody = { title, description, imageUrl:image, category, price };
 
-      // const token = localStorage.getItem('authToken');
-      // await axios.post(
-      //   `${API_URL}/api/projects`,
-      //   requestBody,
-      //   { headers: {Authorization: "Bearer " + token} }
-      // );
-
-      // or
       await productService.createOne(requestBody);      
 
       // Reset the state
         setTitle("");
-        setImageURL("");
+        setImage("")
         setDescription(" ");
         setCategory(" ");
         setPrice(0);
-        setRole("");
+        
 
         refreshProducts();
     } catch (error) {
@@ -46,10 +36,9 @@ function AddProduct({ refreshProducts }) {
     try {
       
       const uploadoData = new FormData();
-      uploadoData.append("imageURL", e.target.files(0))
+      uploadoData.append("image", e.target.files[0])
       const response = await fileService.uploadImage(uploadoData)
-      console.log('REsponseUpload',response)
-      setImageURL(response.data.secure_url);
+      setImage(response.data.secure_url);
 
     } catch (error) {
       console.log(error)
@@ -77,17 +66,15 @@ function AddProduct({ refreshProducts }) {
         />
 
         <label>Image:</label>
-        <input type="file" onChange={handleFileUpload}
+        <input type="file" 
+        onChange={handleFileUpload}
         />
 
         <label>Price:</label>
         <input type="number" name="price" value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
-        <label>Role:</label>
-        <input type="text" name="role" value={role}
-          onChange={(e) => setRole(e.target.value)}
-        />
+        
 
         <button type="submit">Update Project</button>
       </form>

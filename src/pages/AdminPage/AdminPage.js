@@ -33,7 +33,7 @@ function AdminPage() {
         {products.map((oneProduct) => {
             return(
               <div className="productlist card" key={oneProduct._id}>
-                <img src={oneProduct.image} alt="productsimage" width="50px" />
+                <img src={oneProduct.imageUrl} alt="productsimage" width="50px" />
                 <h3>{oneProduct.title}</h3>
                 <h5>{oneProduct.category}</h5>
                 <h5>{oneProduct.price}</h5>
