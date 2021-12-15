@@ -23,12 +23,12 @@ function ProductDetailsPage() {
       console.log(error);
     }
 
-}
+  }
 
   useEffect(() => {
-    getProduct();
+    getProduct()
 
-  }, [])
+  },[]);
 
   return (
     <div className="ProductDetails">

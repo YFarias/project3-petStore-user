@@ -9,7 +9,10 @@ function CartPage() {
   const [cart, setCart] = useState([]);
   const [flag, setFlag] = useState(false);
   
-   const triggerCart = (flag) => {
+  console.log('userProduct',userProduct)
+  
+  
+  const triggerCart = (flag) => {
     setFlag(!flag)
    }
     

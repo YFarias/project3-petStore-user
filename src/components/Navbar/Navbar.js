@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { useContext, useReducer } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 
 
