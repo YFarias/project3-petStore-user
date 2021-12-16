@@ -1,50 +1,51 @@
 import { Link } from "react-router-dom";
-
+import './navbar.css'
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-
+import {Nav, Button} from 'reactstrap'
 
 function Navbar() {
   // Get the value from the context
   const { isLoggedIn, user,  logOutUser } = useContext(AuthContext);
 
   return (
-    <nav className="Navbar">
+    <Nav className="Navbar">
       <Link to="/">
-        <button>Home</button>
+        <Button>Home</Button>
       </Link>
 
       {isLoggedIn && user && (user.role === "admin") && (
       <Link to="/admin">
-        <button>Admin</button>
+        <Button>Admin</Button>
       </Link>
         
       )}
 
 
-      <div className="profile-img-wrapper">    
+      <div className="profile-img-cart">    
         {user &&
           <Link to={"/cartproduct"}>
-            <img className="" src="" alt="Cart" />
+            <img src="./public/21266996981638105639-128.png" alt="cart"  />
+           
           </Link>
         }
       </div>
 
-
+    
       <div className="profile-img-wrapper">
         {user &&
           <Link to="/profile">
-            <button>{user.name}</button>
+            <Button>{user.name}</Button>
           </Link>
         }
       </div> 
-     
+    
       {isLoggedIn && (
         <>
-          <button onClick={logOutUser}>Logout</button>
+          <Button onClick={logOutUser}>Logout</Button>
         </>
       )}
-
+   
       {!isLoggedIn && (
         <>
           <Link to="/signup">
@@ -57,7 +58,7 @@ function Navbar() {
         </>
       )}
       
-    </nav>
+    </Nav>
   );
 }
 

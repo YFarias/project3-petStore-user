@@ -72,7 +72,7 @@ function EditProductPage() {
 
 
 
-  const deleteProject = async () => {
+  const deleteProduct = async () => {
     try {
 
       // const token = localStorage.getItem('authToken');      
@@ -91,7 +91,7 @@ function EditProductPage() {
   };
 
   return (
-    <div className="EditProjectPage">
+    <div className="EditProductPage">
       <h3>Edit the Product</h3>
 
       <form onSubmit={handleFormSubmit}>
@@ -120,10 +120,10 @@ function EditProductPage() {
           onChange={(e) => setPrice(e.target.value)}
         />
      
-        <button type="submit">Update Project</button>
+        <button type="submit">Update Product</button>
       </form>
       <div>
-         <button onClick={deleteProject}>Delete Project</button>
+         <button onClick={deleteProduct}>Delete</button>
       </div>
       
     </div>

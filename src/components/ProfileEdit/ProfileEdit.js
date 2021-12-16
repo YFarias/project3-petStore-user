@@ -6,9 +6,9 @@ import userService from "../../services/user.service";
 function ProfileEdit(props) {
   
   const [name, setName] = useState("")
-  const [password, setPassword] = useState(" ")
-  const [email, setEmail] = useState(" ")
-  const [address, setAddress] = useState(" ")
+  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("")
+  const [address, setAddress] = useState("")
  
   
 
@@ -17,11 +17,11 @@ function ProfileEdit(props) {
       try {
         const response = await userService.oneUser()
         const oneUser = response.data;
-        console.log('USERID WORK', response)
+        console.log('USERID WORK', response.data)
         setName(oneUser.name);
         setPassword(oneUser.password);
         setEmail(oneUser.email);
-        setAddress(oneUser.address);
+        if(oneUser.address) setAddress(oneUser.address);
 
       } catch (error) {
         console.log(error);
@@ -38,11 +38,7 @@ function ProfileEdit(props) {
       const requestBody = { name, password, email, address };
       await userService.updateCurrentUser(requestBody)
 
-      // clear the form
-        setName("")
-        setPassword(" ")
-        setEmail(" ")
-        setAddress(" ")
+
       
 
     } catch (error) {
@@ -78,7 +74,7 @@ function ProfileEdit(props) {
         
         
 
-        <input type="submit" value="Submit" />
+        <button type="submit" >Submit</button>
       </form>
     </div>
   );

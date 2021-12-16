@@ -76,7 +76,7 @@ function AddProduct({ refreshProducts }) {
         />
         
 
-        <button type="submit">Update Project</button>
+        <button type="submit">Create Products</button>
       </form>
     </div>
   );
