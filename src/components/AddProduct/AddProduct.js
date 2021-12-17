@@ -46,7 +46,7 @@ function AddProduct({ refreshProducts }) {
   }
 
   return (
-    <div className="">
+    <div className="product">
      
 
       <form onSubmit={handleSubmit}>

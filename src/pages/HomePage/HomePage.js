@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import productService from "../../services/product.service";
 import { Link } from 'react-router-dom'
 import SearchBar from "../../components/SearchBar/SearchBar";
+import Carousel from 'react-bootstrap/Carousel';
+
 
 import "./homepage.css"
-import AdvertisementBar from "../../components/AdvertisementBar/AdvertisementBar";
-
 
 function HomePage() {
   const [products, setProducts] = useState([])
   const [allProducts, setAllProducts] = useState([])
-  const [imgProducts, setImgProducts] = useState([])
+  
+  
   
   const getAllProducts = async () => {
     try {
@@ -18,7 +19,7 @@ function HomePage() {
       const productData = await productService.getAll()
       setProducts(productData.data)
       setAllProducts(productData.data)
-      setImgProducts(productData.data)
+      
 
     } catch (error) {
       console.log(error)
@@ -28,19 +29,10 @@ function HomePage() {
   useEffect(()=>{
     
     getAllProducts();
-
+    
   },[])
 
-  const advertisement = () =>{
-    setImgProducts(
-      imgProducts.map((e) => {
-        
-          return e.imageUrl
-
-      })
-    )
-  }
-
+  
 
   const searchFilter = (text) => {
     setProducts(
@@ -48,16 +40,52 @@ function HomePage() {
         return product.title.toLowerCase().includes(text.toLowerCase());
       })
     );
-  };
+  }
+  
 
    
   return (
     <div >
-     <div>
-     
-     <AdvertisementBar props={advertisement}/>
-
-     </div>
+      <div className="Advertisement">
+          <h5 className="promotion">50% Off</h5>
+          <Carousel>
+                <Carousel.Item interval={1000}>
+                <img
+                  className="d-block w-100"
+                  src={'https://res.cloudinary.com/dk66uayoi/image/upload/v1639659198/gallery/evfcjfendk0gc7a8kp8k.jpg'}
+                  alt="First slide"
+                  width="200px"
+                />
+                <Carousel.Caption>
+                  
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item interval={1000}>
+                <img
+                  className="d-block w-100"
+                  src={'https://res.cloudinary.com/dk66uayoi/image/upload/v1639659255/gallery/a8d0y9onmr61c6tq71ur.jpg'}
+                  alt="First slide"
+                  width="200px"
+                />
+                <Carousel.Caption>
+                  
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item interval={1000}>
+                <img
+                  className="d-block w-100"
+                  src={'https://res.cloudinary.com/dk66uayoi/image/upload/v1639659299/gallery/a9tcjs3cw6ebpww0mgds.jpg'}
+                  alt="First slide"
+                  width="200px"
+                />
+                <Carousel.Caption>
+                  
+                </Carousel.Caption>
+              </Carousel.Item>
+              
+          </Carousel>
+    
+      </div>
      
      
       <div>

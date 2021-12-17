@@ -3,20 +3,26 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    height: 20px;
-    width: 700px;
-    padding: 50px;
-    margin-top: 70px;
+    
 }
 
-.box4{
+
+.container-payment{
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 100px;
-    width: 400px;
-    padding: 50px;
-    
+    align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+   
+}
+
+
+.payment-method {
+    width:500px;
+    height: 500px;
+    padding:60px;
+
 
 }
 

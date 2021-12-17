@@ -21,7 +21,10 @@ function AddCart(props) {
             <form onSubmit={handleSubmit}>
                 <button type="submit">Add Cart</button>
             </form>
+       
         </div>
+
+        
     );
 }
 
