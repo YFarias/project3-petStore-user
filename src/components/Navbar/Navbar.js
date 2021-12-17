@@ -13,7 +13,7 @@ function Navbar() {
       
       <div className="navbar-container1"> 
       
-          <h2>IronPetStore</h2>
+          <h2>PetStore</h2>
 
       </div>  
       
