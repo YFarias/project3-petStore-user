@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import productService from "../../services/product.service";
 import { Link } from 'react-router-dom'
 import AddProduct from "../../components/AddProduct/AddProduct";
+import "./admin.css"
 
 function AdminPage() {
   const [products, setProducts] = useState([])
@@ -25,7 +26,8 @@ function AdminPage() {
 
 
   return (
-    <div className="productlist">
+    <div className="admin">
+    
        <div>
             <AddProduct/>
 

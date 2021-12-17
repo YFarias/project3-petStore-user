@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
 import AddCart from '../../components/AddCart/AddCart';
 import productService from '../../services/product.service';
+import "./productdetailspage.css"
 
 function ProductDetailsPage() {
   const [product, setProduct] = useState(null);
@@ -24,26 +25,32 @@ function ProductDetailsPage() {
   useEffect(() => {
     getProduct()
 
-  },);
+  },{});
 
   return (
-    <div className="ProductDetails">
+    <div className="product-details">
       {product && (
         <>
-          <div>
-              <h1>{product.title}</h1>
-              <img src={product.image} alt="productimage" width="150px" />
-              <p>{product.description}</p>
-              <h5>{product.price}</h5>
+          
+            <div>
+            <img src={product.imageUrl} alt="productimage" width="280px" />
+            </div>
+            <div className='box2'>
+              <div>
 
-          </div>
-          <div>
+                <h2>{product.title}</h2>
 
-              <AddCart />
+              </div>
+              <div>
 
-          </div>
+                <p>{product.description}</p>
+
+                <h5>{product.price} €</h5>
+
+              </div>
+              <AddCart productId={product._id} />
+            </div>
             
-  
         </> 
          
       )}

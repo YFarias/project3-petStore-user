@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./searchbar.css"
 
 
 function SearchBar({ searchFilter }) {
@@ -13,7 +14,7 @@ function SearchBar({ searchFilter }) {
     <>
       
       <div className="search">
-        <input value={search} type="text" onChange={handleSearchInput} />
+        <input className="search-input" value={search} type="search" onChange={handleSearchInput} />
       </div>
     </>
   );

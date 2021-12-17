@@ -1,0 +1,22 @@
+
+.cartlist{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    width: 700px;
+    padding: 50px;
+    margin-top: 70px;
+}
+
+.box4{
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100px;
+    width: 400px;
+    padding: 50px;
+    
+
+}
+

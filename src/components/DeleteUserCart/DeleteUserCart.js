@@ -19,7 +19,7 @@ function DeleteUserCart(props) {
     return (  
         <div className="deleteCart">
             <form onSubmit={handleSubmit}>
-                <button type="submit">Delete</button>
+                <button type="submit">X</button>
             </form>
         </div>
     );

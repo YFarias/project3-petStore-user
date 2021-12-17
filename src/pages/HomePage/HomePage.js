@@ -3,10 +3,14 @@ import productService from "../../services/product.service";
 import { Link } from 'react-router-dom'
 import SearchBar from "../../components/SearchBar/SearchBar";
 
+import "./homepage.css"
+import AdvertisementBar from "../../components/AdvertisementBar/AdvertisementBar";
+
 
 function HomePage() {
   const [products, setProducts] = useState([])
   const [allProducts, setAllProducts] = useState([])
+  const [imgProducts, setImgProducts] = useState([])
   
   const getAllProducts = async () => {
     try {
@@ -14,7 +18,7 @@ function HomePage() {
       const productData = await productService.getAll()
       setProducts(productData.data)
       setAllProducts(productData.data)
-     
+      setImgProducts(productData.data)
 
     } catch (error) {
       console.log(error)
@@ -27,6 +31,16 @@ function HomePage() {
 
   },[])
 
+  const advertisement = () =>{
+    setImgProducts(
+      imgProducts.map((e) => {
+        
+          return e.imageUrl
+
+      })
+    )
+  }
+
 
   const searchFilter = (text) => {
     setProducts(
@@ -38,28 +52,35 @@ function HomePage() {
 
    
   return (
-    <div className="productlist">
+    <div >
+     <div>
+     
+     <AdvertisementBar props={advertisement}/>
+
+     </div>
+     
+     
       <div>
         <SearchBar searchFilter={searchFilter}/>
+      
       </div>
-            
-        {products.map((oneProduct) => {
-            return(
-              <div className="productlist card" key={oneProduct._id}>
-                <img src={oneProduct.image} alt="productsimage" width="50px" />
-                
-                <Link to={"/productsdetails/" + oneProduct._id}>
-                   
-                  <h3>{oneProduct.title}</h3>
-                  
-                </Link>
-                <h5>{oneProduct.category}</h5>
-                <h5>{oneProduct.price}</h5>
-              </div>
-            ) 
-          })
-        }
-     
+    
+        <div className="itens">   
+          {products.map((oneProduct) => {
+              return(
+                <div className="box" key={oneProduct._id}>
+                  <img src={oneProduct.imageUrl} alt="productsimage" width="150px" />
+                  <Link to={"/productsdetails/" + oneProduct._id}>
+                    <h8>{oneProduct.title}</h8>
+                  </Link>
+                  <p>{oneProduct.category}</p>
+                  <h8>{oneProduct.price} €</h8>
+                </div>
+              ) 
+            })
+          }
+        </div> 
+    
      
     </div>
 

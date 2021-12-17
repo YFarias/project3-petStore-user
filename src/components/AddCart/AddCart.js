@@ -2,16 +2,15 @@ import { useParams } from "react-router-dom";
 import productService from "../../services/product.service";
 
 
-function AddCart() {
+function AddCart(props) {
    
-   const {productId } = useParams();
-   console.log('addcart productid', productId)
+   
     
     const handleSubmit = async (e)  => {
         try {
             e.preventDefault();
                     
-            await productService.updateUserCart(productId)
+            await productService.updateUserCart(props.productId)
         } catch (error) {
             console.log(error)
         }

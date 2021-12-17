@@ -1,0 +1,17 @@
+/* src/index.css */
+
+
+.search{
+margin-bottom: 50px;
+background: linear-gradient(to top left, #ffe5e3 1%, rgb(255, 254, 211) 100%);
+box-shadow: 2px 4px 4px   gray;
+height: 50px;
+
+}
+.search-input{
+  border-color: rgb(190, 161, 161);
+  border-radius: 10px;
+  width: 400px;
+  height: 45px;
+}   
+

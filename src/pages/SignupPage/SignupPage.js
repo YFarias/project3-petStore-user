@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import {Button} from "reactstrap"
 import authService from "../../services/auth.service";
 
 function SignupPage(props) {
@@ -52,7 +52,7 @@ function SignupPage(props) {
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
 
-        <button type="submit">Sign Up</button>
+        <Button type="submit">Sign Up</Button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

@@ -10,54 +10,65 @@ function Navbar() {
 
   return (
     <Nav className="Navbar">
-      <Link to="/">
-        <Button>Home</Button>
-      </Link>
-
-      {isLoggedIn && user && (user.role === "admin") && (
-      <Link to="/admin">
-        <Button>Admin</Button>
-      </Link>
-        
-      )}
-
-
-      <div className="profile-img-cart">    
-        {user &&
-          <Link to={"/cartproduct"}>
-            <img src="./public/21266996981638105639-128.png" alt="cart"  />
-           
-          </Link>
-        }
-      </div>
-
-    
-      <div className="profile-img-wrapper">
-        {user &&
-          <Link to="/profile">
-            <Button>{user.name}</Button>
-          </Link>
-        }
-      </div> 
-    
-      {isLoggedIn && (
-        <>
-          <Button onClick={logOutUser}>Logout</Button>
-        </>
-      )}
-   
-      {!isLoggedIn && (
-        <>
-          <Link to="/signup">
-            <button>Sign Up</button>
-          </Link>
-
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-        </>
-      )}
       
+      <div className="navbar-container1"> 
+      
+          <h2>PetStore</h2>
+
+      </div>  
+      
+      
+      <div className="navbar-container2"> 
+        <div>
+              <Link to="/">
+                <Button color="" className="nav-links"><h6>Home</h6></Button>
+              </Link>
+        </div>
+        <div>
+            {isLoggedIn && user && (user.role === "admin") && (
+            <Link to="/admin">
+              <Button  color="" className="nav-links"><h6>Admin</h6></Button>
+            </Link>
+              
+            )}
+        </div>
+     
+        <div className="">    
+          {user &&
+            <Link to={"/cartproduct"}>
+              <Button color="" className="nav-links"  > 
+                <h6>Cart</h6>
+              </Button>
+            </Link>
+          }
+        </div>
+
+        <div className="">
+          {user &&
+            <Link to="/profile">
+              <Button color="" className="nav-links" > <h6>Profile</h6> </Button>{''}
+            </Link>
+          }
+        </div> 
+        
+          {isLoggedIn && (
+            <>
+              <Button  color="" className="nav-links" onClick={logOutUser}> <h6>Logout</h6> </Button>
+            </>
+          )}
+      
+          {!isLoggedIn && (
+            <>
+              <Link to="/signup">
+                <Button color="" className="nav-links"  >Sign Up</Button>
+              </Link>
+
+              <Link to="/login">
+                <Button color="" className="nav-links"  >Login</Button>
+              </Link>
+            </>
+          )}
+      </div>
     </Nav>
   );
 }

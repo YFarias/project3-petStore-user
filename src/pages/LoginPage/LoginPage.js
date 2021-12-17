@@ -3,7 +3,7 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-
+import {Button} from "reactstrap"
 import authService from "../../services/auth.service";
 
 function LoginPage(props) {
@@ -53,7 +53,7 @@ function LoginPage(props) {
           onChange={handlePassword}
         />
 
-        <button type="submit">Login</button>
+        <Button type="submit">Login</Button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 

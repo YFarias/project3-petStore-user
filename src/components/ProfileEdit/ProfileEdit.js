@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import userService from "../../services/user.service";
-
-
+import "./profileedit.css"
+import {Button} from "reactstrap"
 
 function ProfileEdit(props) {
   
@@ -47,9 +47,8 @@ function ProfileEdit(props) {
   }
   
   return (
-    <div className="EditProjectPage">
-      <h3>Edit the Project</h3>
-
+    <div className="profileedit">
+     
       <form onSubmit={handleSubmit}>
 
         <label>Name:</label>
@@ -71,10 +70,11 @@ function ProfileEdit(props) {
         <input type="text" name="address" value={address}
           onChange={(e) => setAddress(e.target.value)}
         />
-        
-        
+        <div className="button-prof">
 
-        <button type="submit" >Submit</button>
+          <Button type="submit" >Submit</Button>
+        </div>
+
       </form>
     </div>
   );

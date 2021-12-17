@@ -1,0 +1,23 @@
+.profileedit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    width: 500px;
+    height: 400px;
+    padding: 30px ;
+    margin-left: 70px;
+    
+}
+
+.profile{
+    margin-top: 70px;
+}
+
+
+.button-prof{
+margin-top: 20px;
+margin-left: 200px;
+
+}

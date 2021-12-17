@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import DeleteUserCart from '../../components/DeleteUserCart/DeleteUserCart';
-
 import userService from '../../services/user.service';
-
+import "./cartpage.css"
 
 function CartPage() {
   const [userProduct, setUserProduct] = useState([]);
@@ -34,23 +33,33 @@ function CartPage() {
   }, [flag])
 
   return (
-    <div className="">
+    <ul className="cartlist">
       {
         cart.map((e) => {
         return (
-          <div key={e._id}>
-          <h5>{e.title}</h5>
-         
-            <DeleteUserCart productId={e._id} triggerCart={triggerCart}/>
+          <li className='box3'>
+          
+              <div key={e._id}  className='box3'>
+                <div>
+                  <h7>{e.title}</h7>
+                </div>
+                <div>
+                  <h7>{e.price} €</h7>
+                </div>
+                <div>
+                  <DeleteUserCart productId={e._id} triggerCart={triggerCart}/>
 
-        </div>  
-
+                </div>
+      
+              </div>
+             
+          </li>
         
         )
         })
       }
 
-    </div>
+    </ul>
   );
 }
 

@@ -46,8 +46,8 @@ function AddProduct({ refreshProducts }) {
   }
 
   return (
-    <div className="AddProject">
-      <h3>Add Project</h3>
+    <div className="">
+     
 
       <form onSubmit={handleSubmit}>
         <label>Title:</label>
