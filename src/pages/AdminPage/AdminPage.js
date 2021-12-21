@@ -3,6 +3,8 @@ import productService from "../../services/product.service";
 import { Link } from 'react-router-dom'
 import AddProduct from "../../components/AddProduct/AddProduct";
 import "./admin.css"
+import {Button} from "reactstrap"
+
 
 function AdminPage() {
   const [products, setProducts] = useState([])
@@ -34,13 +36,13 @@ function AdminPage() {
        </div>
         {products.map((oneProduct) => {
             return(
-              <div className="productlist card" key={oneProduct._id}>
+              <div className="productform" key={oneProduct._id}>
                 <img src={oneProduct.imageUrl} alt="productsimage" width="50px" />
-                <h3>{oneProduct.title}</h3>
-                <h5>{oneProduct.category}</h5>
-                <h5>{oneProduct.price}</h5>
+                <h5>{oneProduct.title}</h5>
+                <h6>{oneProduct.category}</h6>
+                <h6>{oneProduct.price}</h6>
                 <Link to={"/admin-edit/" + oneProduct._id}>
-                    <button>Edit</button>
+                    <Button>Edit</Button>
                 </Link>
                 
 

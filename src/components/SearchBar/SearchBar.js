@@ -14,7 +14,8 @@ function SearchBar({ searchFilter }) {
     <>
       
       <div className="search">
-        <input className="search-input" value={search} type="search" onChange={handleSearchInput} />
+        <input className="search-input" value={search} type="search" onChange={handleSearchInput}
+        placeholder="Search.." />
       </div>
     </>
   );

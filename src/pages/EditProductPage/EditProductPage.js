@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import fileService from "../../services/file.service";
 import productService from "../../services/product.service";
+import {Button} from "reactstrap"
+
 
 
 function EditProductPage() {
@@ -119,11 +121,12 @@ function EditProductPage() {
         <input type="number" name="price" value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
-     
-        <button type="submit">Update Product</button>
+        <br />
+        <Button type="submit">Update Product</Button>
       </form>
+      <br />
       <div>
-         <button onClick={deleteProduct}>Delete</button>
+         <Button onClick={deleteProduct}>Delete</Button>
       </div>
       
     </div>

@@ -52,6 +52,7 @@ function LoginPage(props) {
           value={password}
           onChange={handlePassword}
         />
+        <br />
 
         <Button type="submit">Login</Button>
       </form>

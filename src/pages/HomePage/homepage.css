@@ -6,37 +6,43 @@
   justify-content: space-between;
   justify-items: center;
   align-items: center;
-  padding: 30px;
+  padding: 20px;
   
- 
+   
 }
 
 .box{
   width: 230px;
-  height: 330px;
+  height: 340px;
   padding: 30px;
   
 }
 
-.Advertisement{
-  margin-top: 40px;
-  margin-bottom: 110px;
-  height: 270px;
-  width: 300px;
-  margin-left: 500px;
+.advertisement{
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  padding-left:320px;
+  padding-right: 100px;
+  height: 400px;
+  
+}
+
+.carousel{
+  width: 60%;
+}
+
   
 
-  }
+.homepageGrid{
+  display: flex;
+}
 
-  .homepageGrid{
-    display: flex;
-  }
+.promotion{
+  font-family:fantasy ;
+  color: red;
+  
 
-  .promotion{
-    font-family:fantasy ;
-    color: red;
-    
-
-  }
+}
 
 

@@ -1,8 +1,17 @@
-.adminForm{
- margin-top: 70px;
- display: flex;
- flex-direction: row;
- justify-content: space-between;
- 
+.admin{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    padding: 30px;
+
+}
+
+.productform {
+    width: 230px;
+    height: 330px;
+    padding: 30px;
 }
 

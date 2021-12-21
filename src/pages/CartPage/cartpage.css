@@ -1,8 +1,19 @@
+.cartlist {
+ margin-top: 50px;
+ width: 600px;
+ height: 600px;
+
+}
+
+
+
+
 
 .cartlist{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     
 }
 
@@ -12,17 +23,22 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 130px;
+    margin-right: 130px;
    
 }
 
 
 .payment-method {
-    width:500px;
+  
+    width:400px;
     height: 500px;
-    padding:60px;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+   
 
 }
 

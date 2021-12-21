@@ -26,7 +26,7 @@ function CartPage() {
       setCart(response.data.addCart);
     
 
-        const tot = response.data.addCart.reduce((a,b) => a + b.price, 0);
+        const tot = response.data.addCart.reduce((a,b) => a + b.price,0);
         setPrice(tot);
         console.log('prices', price );
     } catch (error) {
@@ -62,13 +62,14 @@ function CartPage() {
                     <DeleteUserCart productId={e._id} triggerCart={triggerCart}/>
                   </div>
                 </div>
-              
+                <hr />
             </li>
+              
           
           )})
         }
 
-        <h3>total: {price} </h3>
+       
 
       </ul>
       <div className='payment-method'>
@@ -78,8 +79,7 @@ function CartPage() {
                     <h2 id="heading2" class="text-danger">Payment Method</h2>
                     <div class="radio-group">
                         <div class='radio' data-value="credit"><img src="https://i.imgur.com/28akQFX.jpg" width="200px" height="60px"/></div>
-                        <div class='radio' data-value="paypal"><img src="https://i.imgur.com/5QFsx7K.jpg" width="200px" height="60px"/></div> <br/>
-                    </div> <label class="pay">Name on Card</label> <input type="text" name="holdername" placeholder="John Smith"/>
+                    </div> <label class="pay">Name on Card</label> <input type="text" name="holdername" placeholder="John Smith" maxlength="30"/>
                     <div class="row">
                         <div class="col-8 col-md-6"> <label class="pay">Card Number</label> <input type="text" name="cardno" id="cr_no" placeholder="0000-0000-0000-0000" minlength="19" maxlength="19"/> </div>
                         <div class="col-4 col-md-6"> <label class="pay">CVV</label> <input type="password" name="cvcpwd" placeholder="&#9679;&#9679;&#9679;" class="placeicon" minlength="3" maxlength="3"/> </div>
@@ -88,6 +88,9 @@ function CartPage() {
                         <div class="col-md-12"> <label class="pay">Expiration Date</label> </div>
                         <div class="col-md-12"> <input type="text" name="exp" id="exp" placeholder="MM/YY" minlength="5" maxlength="5"/> </div>
                     </div>
+                    <br />
+                    <h3>Total: {price.toFixed(2)} </h3>
+                    <br />
                     <div class="row">
                         <div class="col-md-6"> <input type="submit" value="MAKE A PAYMENT &nbsp; &#xf178;" class="btn btn-info placeicon"/> </div>
                     </div>

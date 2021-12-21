@@ -3,13 +3,16 @@
 
 .search{
 margin-bottom: 50px;
-background: linear-gradient(to top left, #fdedec 1%, rgb(255, 255, 227) 100%);
+background: linear-gradient(to top left, #ffa71a 1%, rgb(255, 251, 0) 100%);
 box-shadow: 2px 4px 4px   gray;
-height: 50px;
+height: 70px;
+align-items: center;
+padding: 10px;
 
 }
 .search-input{
-  border-color: rgb(190, 161, 161);
+  
+  border-color: rgb(246, 233, 233);
   border-radius: 10px;
   width: 400px;
   height: 45px;

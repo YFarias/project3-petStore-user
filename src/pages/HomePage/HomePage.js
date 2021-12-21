@@ -3,16 +3,14 @@ import productService from "../../services/product.service";
 import { Link } from 'react-router-dom'
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Carousel from 'react-bootstrap/Carousel';
-
+import AddCart from "../../components/AddCart/AddCart";
 
 import "./homepage.css"
 
 function HomePage() {
   const [products, setProducts] = useState([])
   const [allProducts, setAllProducts] = useState([])
-  
-  
-  
+    
   const getAllProducts = async () => {
     try {
       
@@ -33,7 +31,6 @@ function HomePage() {
   },[])
 
   
-
   const searchFilter = (text) => {
     setProducts(
       allProducts.filter((product) => {
@@ -42,19 +39,25 @@ function HomePage() {
     );
   }
   
-
-   
+ 
   return (
     <div >
-      <div className="Advertisement">
-          <h5 className="promotion">50% Off</h5>
+
+      <div>
+        
+        <SearchBar searchFilter={searchFilter}/>
+      
+      </div>
+
+      <div className="advertisement">
+          <h4 className="promotion">50% Off</h4>
           <Carousel>
                 <Carousel.Item interval={1000}>
                 <img
-                  className="d-block w-100"
-                  src={'https://res.cloudinary.com/dk66uayoi/image/upload/v1639659198/gallery/evfcjfendk0gc7a8kp8k.jpg'}
+                  className="carousel"
+                  src={'https://res.cloudinary.com/dk66uayoi/image/upload/v1639658770/gallery/zhklvxy7u0erqobnfy6m.jpg'}
                   alt="First slide"
-                  width="200px"
+                                  
                 />
                 <Carousel.Caption>
                   
@@ -62,10 +65,10 @@ function HomePage() {
               </Carousel.Item>
               <Carousel.Item interval={1000}>
                 <img
-                  className="d-block w-100"
+                  className="carousel"
                   src={'https://res.cloudinary.com/dk66uayoi/image/upload/v1639659255/gallery/a8d0y9onmr61c6tq71ur.jpg'}
                   alt="First slide"
-                  width="200px"
+                                 
                 />
                 <Carousel.Caption>
                   
@@ -73,10 +76,10 @@ function HomePage() {
               </Carousel.Item>
               <Carousel.Item interval={1000}>
                 <img
-                  className="d-block w-100"
-                  src={'https://res.cloudinary.com/dk66uayoi/image/upload/v1639659299/gallery/a9tcjs3cw6ebpww0mgds.jpg'}
+                  className="carousel"
+                  src={'https://res.cloudinary.com/dk66uayoi/image/upload/v1639659481/gallery/axosjnjebqpxf5inextk.jpg'}
                   alt="First slide"
-                  width="200px"
+                     
                 />
                 <Carousel.Caption>
                   
@@ -84,15 +87,13 @@ function HomePage() {
               </Carousel.Item>
               
           </Carousel>
-    
+
+          <h4 className="promotion">50% Off</h4>
+
+ 
       </div>
-     
-     
-      <div>
-        <SearchBar searchFilter={searchFilter}/>
+        <hr className="hr" />
       
-      </div>
-    
         <div className="itens">   
           {products.map((oneProduct) => {
               return(
@@ -103,7 +104,11 @@ function HomePage() {
                   </Link>
                   <p>{oneProduct.category}</p>
                   <h8>{oneProduct.price} €</h8>
+                  <div>
+                    <AddCart productId={oneProduct._id} />
+                  </div>
                 </div>
+                
               ) 
             })
           }

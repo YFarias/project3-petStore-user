@@ -25,7 +25,7 @@ textarea {
 
 
 
-.product form,
+
 .AddTask,
 .SignupPage,
 .LoginPage {
@@ -41,7 +41,7 @@ textarea {
   margin-top: 70px;
 }
 
-.product form,
+
 .SignupPage,
 .LoginPage {
   background-color: #e2eff5;
@@ -52,7 +52,7 @@ textarea {
   background-color: #e2eff5;
 }
 
-.product form,
+
 .EditProductPage form,
 .AddTask form,
 .AddProject form,

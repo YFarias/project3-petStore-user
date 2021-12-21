@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import productService from "../../services/product.service";
-
+import { Button } from "reactstrap";
 
 function AddCart(props) {
    
@@ -19,7 +19,7 @@ function AddCart(props) {
     return (  
         <div className="AddCart">
             <form onSubmit={handleSubmit}>
-                <button type="submit">Add Cart</button>
+                <Button type="submit">Add Cart</Button>
             </form>
        
         </div>

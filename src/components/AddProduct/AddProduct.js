@@ -2,7 +2,8 @@
 import { useState } from "react";
 import fileService from "../../services/file.service";
 import productService from "../../services/product.service";
-
+import "./AddProduct.css"
+import {Button} from "reactstrap"
 
 function AddProduct({ refreshProducts }) {
     const [title, setTitle] = useState("");
@@ -55,10 +56,12 @@ function AddProduct({ refreshProducts }) {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label>Description:</label>
-        <textarea name="description" value={description}
-          onChange={(e) => setDescription(e.target.value)}
+        <label>Price:</label>
+          <input type="number" name="price" value={price}
+          onChange={(e) => setPrice(e.target.value)}
         />
+
+        
 
         <label>Category:</label>
         <input name="category" value={category}
@@ -70,13 +73,13 @@ function AddProduct({ refreshProducts }) {
         onChange={handleFileUpload}
         />
 
-        <label>Price:</label>
-        <input type="number" name="price" value={price}
-          onChange={(e) => setPrice(e.target.value)}
+      <label>Description:</label>
+        <textarea name="description" value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
-        
+        <br />
 
-        <button type="submit">Create Products</button>
+        <Button type="submit">Create Products</Button>
       </form>
     </div>
   );
